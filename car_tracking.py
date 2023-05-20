@@ -1,13 +1,22 @@
 import cv2
 
-# Our image
+# Our image and video
 img_file = 'car_image2.jpg'
-
-# Our video
 video = cv2.VideoCapture('')
 
 # Pre-trained car classifier
 classifier_file = 'car_detector.xml'
+
+# Run
+while True:
+
+    # Read the current frame
+    read_successful, frame = video.read()
+
+    if read_successful:
+        grayscaled_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    else: 
+        break
 
 # Create opencv image
 img = cv2.imread(img_file)
